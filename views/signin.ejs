@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head'); %>
+  <body>
+    <%- include('partials/navbar') %>
+    <main class="main">
+      <div class="overlay-signin">
+        <form class="modal" id="form">
+          <h3 class="modal-title">Sign in</h3>
+          <a href="/">
+            <div class="close-modal signin">
+              <span>X</span>
+            </div>
+          </a>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Name" id="name-input" />
+          </div>
+          <div class="error name-err"></div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              id="email-input"
+            />
+          </div>
+          <div class="error email-err"></div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              id="password-input"
+            />
+          </div>
+          <div class="error password-err"></div>
+          <div>
+            <a href="/login"
+              >Already got an account?<span> Log in here...</span>
+            </a>
+          </div>
+          <div class="submit-btn">
+            <input type="submit" value="Sign in" />
+          </div>
+        </form>
+      </div>
+      <div>
+        <img src="/gumball-family.png" alt="gumball-family-image" />
+      </div>
+      <p>See Gumball Cartoon Characters!</p>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+
+  <script>
+    const form = document.querySelector("#form");
+    const nameInput = document.querySelector("#name-input");
+    const emailInput = document.querySelector("#email-input");
+    const passwordInput = document.querySelector("#password-input");
+    const nameErr = document.querySelector(".name-err");
+    const emailErr = document.querySelector(".email-err");
+    const passwordErr = document.querySelector(".password-err");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      nameErr.textContent = "";
+      emailErr.textContent = "";
+      passwordErr.textContent = "";
+
+      const name = nameInput.value;
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      try {
+        const response = await fetch("/signin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        });
+
+        const data = await response.json();
+
+        if (data.errors) {
+          nameErr.textContent = data.errors.name;
+          emailErr.textContent = data.errors.email;
+          passwordErr.textContent = data.errors.password;
+        } else {
+          location.assign("/");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  </script>
+</html>

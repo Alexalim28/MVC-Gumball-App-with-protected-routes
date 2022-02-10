@@ -1,0 +1,30 @@
+<header class="header">
+  <img class="logo" src="/clipart3233528.png" alt="logo" />
+  <h3 class="header-title">Gumball Characters</h3>
+
+  <% if(user) { %>
+  <h5 class="user-name">Hi <%= user %> !</h5>
+  <% } %>
+
+  <nav class="navbar">
+    <ul>
+      <li class="home-link">
+        <a href="http://localhost:3000/">Home Page</a>
+      </li>
+      <li>
+        <button class="btn signin">
+          <a href="http://localhost:3000/signin"> Sign In</a>
+        </button>
+      </li>
+      <li>
+        <button class="btn login">
+          <% if(user) { %>
+          <a href="http://localhost:3000/logout"> Log Out </a>
+          <% } else { %>
+          <a href="http://localhost:3000/login"> Log In </a>
+          <% } %>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>

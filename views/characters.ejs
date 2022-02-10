@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head'); %>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="grid">
+      <% characters.forEach( character => { %>
+      <div class="card">
+        <img
+          src=" <%= character.img %>  "
+          alt="image"
+          width="100"
+          height="100"
+        />
+        <p><span>Name:</span> <%= character.name %></p>
+        <p><span>Age:</span> <%= character.age %></p>
+        <p><span>Occupation:</span> <%= character.occupation %></p>
+        <p><span>Description:</span> <%= character.description %></p>
+      </div>
+
+      <% }) %>
+    </div>
+    <%- include('partials/footer') %>
+  </body>
+</html>

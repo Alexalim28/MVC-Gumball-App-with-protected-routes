@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Navabr */
+.header {
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  border-bottom: 1px transparent rgba(0, 0, 0, 0.4);
+  box-shadow: 8px 2px 8px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    90deg,
+    rgba(207, 228, 189, 1) 9%,
+    rgba(218, 46, 114, 1) 23%,
+    rgba(104, 201, 200, 1) 38%,
+    rgba(168, 76, 156, 1) 53%,
+    rgba(242, 197, 45, 1) 67%,
+    rgba(98, 190, 109, 1) 80%,
+    rgba(100, 136, 197, 1) 93%
+  );
+}
+
+.logo {
+  margin-left: 40px;
+  height: 70px;
+  align-self: center;
+}
+
+.header-title {
+  flex-grow: 1;
+  align-self: center;
+  padding-left: 250px;
+  font-size: 2.4rem;
+  font-family: "Luckiest Guy", cursive;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 2px 1px black;
+}
+
+.navbar {
+  width: 30%;
+}
+
+.navbar ul {
+  display: flex;
+  min-height: 100px;
+  padding: 0 40px;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin-left: auto;
+}
+
+.user-name {
+  align-self: center;
+  text-transform: capitalize;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.3rem;
+  color: rgb(216, 8, 91);
+  font-weight: 600;
+  padding-right: 20px;
+}
+
+.home-link {
+  transition: all 0.3s;
+}
+
+.home-link:hover {
+  transform: scale(1.2);
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  outline: none;
+  cursor: pointer;
+}
+
+.signin {
+  background-color: royalblue;
+}
+
+.login {
+  background-color: rgba(218, 46, 114, 1);
+}
+
+.btn.signin:hover {
+  background-color: rgb(28, 77, 223);
+  transform: scale(1.2);
+}
+
+.btn.login:hover {
+  background-color: rgb(216, 8, 91);
+  transform: scale(1.2);
+}
+
+/* Landing page */
+.main {
+  display: flex;
+  min-height: calc(100vh - 170px);
+  padding: 5px 40px;
+}
+
+.main div {
+  flex-grow: 1;
+}
+
+.main p {
+  padding-right: 150px;
+  align-self: center;
+  font-size: 2.1rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.main-text {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Footer */
+.footer {
+  flex-grow: 1;
+  border-top: 1px solid #000;
+  background: rgba(100, 136, 197, 1) 93%;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Modal */
+.not-show {
+  display: none;
+}
+
+.overlay-signin,
+.overlay-login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  min-height: 200px;
+  padding: 20px;
+  margin: auto;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.modal-title {
+  align-self: center;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.modal div {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.modal label {
+  flex-grow: 1;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.modal input {
+  width: 290px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(104, 201, 200, 1);
+  font-size: 1rem;
+}
+
+.modal input:focus {
+  outline: none;
+  box-shadow: 0px 0px 1px 2px rgba(168, 76, 156, 1);
+}
+
+.modal a {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.modal span {
+  align-self: center;
+  color: rgba(0, 0, 255, 0.74);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  left: 90%;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 0, 0, 0.801);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-modal span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  color: #fff;
+}
+
+.close-modal:hover {
+  transform: rotate(360deg);
+  transform-origin: center;
+}
+
+.submit-btn input {
+  width: 100%;
+  background: rgba(104, 201, 200, 1);
+  border: 1px solid rgb(25, 173, 171);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Characters Page */
+.grid {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px 80px;
+}
+
+/* Character Card */
+.card {
+  justify-self: center;
+  width: 450px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+}
+
+.card img {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 25%;
+  padding: 5px;
+  float: right;
+}
+
+.card h3,
+h4,
+p {
+  margin: 5px 0;
+}
+
+.card span {
+  font-weight: 700;
+}
+
+/* Errors */
+.error {
+  color: rgb(216, 8, 91);
+  width: 50%;
+  margin: auto;
+  font-size: 0.8rem;
+}
